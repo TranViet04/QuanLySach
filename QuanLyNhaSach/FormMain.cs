@@ -339,5 +339,10 @@ namespace QuanLyNhaSach
         {
             OpenChildForm(new FormPurchaseOrderList());
         }
+
+        private void mnuStocktaking_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormStockTaking());
+        }
     }
 }
