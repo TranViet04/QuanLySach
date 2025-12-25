@@ -210,6 +210,7 @@
             this.quảnLýHóaĐơnToolStripMenuItem.Name = "quảnLýHóaĐơnToolStripMenuItem";
             this.quảnLýHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
             this.quảnLýHóaĐơnToolStripMenuItem.Text = "Quản Lý Hóa Đơn";
+            this.quảnLýHóaĐơnToolStripMenuItem.Click += new System.EventHandler(this.quảnLýHóaĐơnToolStripMenuItem_Click);
             // 
             // mnuPurchasing
             // 
@@ -373,6 +374,7 @@
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(29, 24);
             this.toolStripButton3.Text = "Hóa Đơn";
+            this.toolStripButton3.Click += new System.EventHandler(this.quảnLýHóaĐơnToolStripMenuItem_Click);
             // 
             // toolStripButton4
             // 

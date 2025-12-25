@@ -99,6 +99,7 @@
       <DependentUpon>BookDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Data\BookStoreContext.cs" />
+    <Compile Include="Features\ExportHelper.cs" />
     <Compile Include="FormAuthor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormInvoice.resx">
       <DependentUpon>FormInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInvoiceDetail.resx">
+      <DependentUpon>FormInvoiceDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInvoiceManagement.resx">
       <DependentUpon>FormInvoiceManagement.cs</DependentUpon>

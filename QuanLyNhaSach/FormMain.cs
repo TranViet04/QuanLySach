@@ -324,5 +324,10 @@ namespace QuanLyNhaSach
         {
             OpenChildForm(new FormInvoice());
         }
+
+        private void quảnLýHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormInvoiceManagement());
+        }
     }
 }

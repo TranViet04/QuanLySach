@@ -7,19 +7,6 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,8 +15,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitle = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbSearchStatus = new System.Windows.Forms.ComboBox();
@@ -47,7 +34,7 @@
             this.dgvInvoiceManagement = new System.Windows.Forms.DataGridView();
             this.InvoiceCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InvoiceDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Staff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,9 +68,10 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(378, 36);
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(346, 36);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(211, 16);
+            this.lblTitle.Size = new System.Drawing.Size(289, 22);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "QUẢN LÝ DANH SÁCH HÓA ĐƠN";
             // 
@@ -128,6 +116,7 @@
             this.btnRefresh.TabIndex = 3;
             this.btnRefresh.Text = "Làm Mới";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // cmbSearchStaff
             // 
@@ -145,6 +134,7 @@
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Tìm Kiếm";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dtpToDate
             // 
@@ -219,7 +209,7 @@
             this.dgvInvoiceManagement.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.InvoiceCode,
             this.InvoiceDate,
-            this.Name,
+            this.CustomerName,
             this.Staff,
             this.TotalAmount,
             this.Column6,
@@ -227,33 +217,37 @@
             this.Column10,
             this.Column8,
             this.Column9});
-            this.dgvInvoiceManagement.Location = new System.Drawing.Point(55, 347);
+            this.dgvInvoiceManagement.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvInvoiceManagement.Location = new System.Drawing.Point(0, 362);
             this.dgvInvoiceManagement.Name = "dgvInvoiceManagement";
             this.dgvInvoiceManagement.RowHeadersWidth = 51;
             this.dgvInvoiceManagement.RowTemplate.Height = 24;
-            this.dgvInvoiceManagement.Size = new System.Drawing.Size(870, 122);
+            this.dgvInvoiceManagement.Size = new System.Drawing.Size(981, 272);
             this.dgvInvoiceManagement.TabIndex = 2;
+            this.dgvInvoiceManagement.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInvoiceManagement_CellClick);
+            this.dgvInvoiceManagement.SelectionChanged += new System.EventHandler(this.dgvInvoiceManagement_SelectionChanged);
             // 
             // InvoiceCode
             // 
             this.InvoiceCode.HeaderText = "Mã HD";
             this.InvoiceCode.MinimumWidth = 6;
             this.InvoiceCode.Name = "InvoiceCode";
+            this.InvoiceCode.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // InvoiceDate
             // 
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.InvoiceDate.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.InvoiceDate.DefaultCellStyle = dataGridViewCellStyle1;
             this.InvoiceDate.HeaderText = "Ngày";
             this.InvoiceDate.MinimumWidth = 6;
             this.InvoiceDate.Name = "InvoiceDate";
             // 
-            // Name
+            // CustomerName
             // 
-            this.Name.HeaderText = "Khách Hàng";
-            this.Name.MinimumWidth = 6;
-            this.Name.Name = "Name";
+            this.CustomerName.HeaderText = "Khách Hàng";
+            this.CustomerName.MinimumWidth = 6;
+            this.CustomerName.Name = "CustomerName";
             // 
             // Staff
             // 
@@ -263,9 +257,9 @@
             // 
             // TotalAmount
             // 
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.TotalAmount.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.TotalAmount.DefaultCellStyle = dataGridViewCellStyle2;
             this.TotalAmount.HeaderText = "Tổng Tiền";
             this.TotalAmount.MinimumWidth = 6;
             this.TotalAmount.Name = "TotalAmount";
@@ -278,9 +272,11 @@
             // 
             // Column7
             // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column7.HeaderText = "Xem";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
+            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Column10
             // 
@@ -426,6 +422,7 @@
             this.btnView.TabIndex = 3;
             this.btnView.Text = "Xem chi tiết";
             this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // btnEdit
             // 
@@ -435,6 +432,7 @@
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnPrint
             // 
@@ -444,6 +442,7 @@
             this.btnPrint.TabIndex = 3;
             this.btnPrint.Text = "In ";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnDelete
             // 
@@ -453,6 +452,7 @@
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnClose
             // 
@@ -462,6 +462,7 @@
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Đóng";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // FormInvoiceManagement
             // 
@@ -477,7 +478,10 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblTitle);
-            this.Text = "FormInvoiceManagement";
+            this.Name = "FormInvoiceManagement";
+            this.Text = "Quản lý hóa đơn";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FormInvoiceManagement_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceManagement)).EndInit();
@@ -525,7 +529,7 @@
         private System.Windows.Forms.TextBox txtCustomerSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn InvoiceCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn InvoiceDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Staff;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;

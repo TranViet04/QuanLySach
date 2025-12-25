@@ -800,5 +800,84 @@ namespace QuanLyNhaSach
             cmbPublisher.SelectedIndex = -1;
         }
 
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                SearchBooks();
+                e.Handled = true;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SearchBooks();
+        }
+
+        private void SearchBooks()
+        {
+            string searchText = textBox1.Text.Trim().ToLower();
+
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                LoadBooks();
+                return;
+            }
+
+            try
+            {
+                dgvBook.Rows.Clear();
+                using (var db = new BookStoreContext())
+                {
+                    var list = db.Books
+                        .Include("Author")
+                        .Include("Category")
+                        .Include("Publisher")
+                        .Where(b =>
+                            b.Title.ToLower().Contains(searchText) ||
+                            b.Author.Name.ToLower().Contains(searchText) ||
+                            b.Category.Name.ToLower().Contains(searchText) ||
+                            b.Publisher.Name.ToLower().Contains(searchText) ||
+                            b.BookId.ToString().Contains(searchText))
+                        .Select(b => new
+                        {
+                            b.BookId,
+                            b.Title,
+                            Author = b.Author != null ? b.Author.Name : "",
+                            Category = b.Category != null ? b.Category.Name : "",
+                            Publisher = b.Publisher != null ? b.Publisher.Name : "",
+                            Distributor = b.Distributor != null ? b.Distributor.DistributorName : "",
+                            b.PublishYear,
+                            b.Price,
+                            b.CoverImagePath
+                        })
+                        .ToList();
+
+                    if (list.Count == 0)
+                    {
+                        MessageBox.Show("Không tìm thấy sách nào phù hợp", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    foreach (var b in list)
+                    {
+                        int rowIndex = dgvBook.Rows.Add(
+                            b.BookId, b.Title, b.Author, b.Category, b.Publisher,
+                            b.Distributor, b.PublishYear, b.Price.ToString("N0", vnCulture),
+                            b.CoverImagePath);
+                        dgvBook.Rows[rowIndex].Tag = b.BookId;
+                    }
+
+                    dgvBook.ClearSelection();
+                    IsEnableEditDelete(false);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
