@@ -172,6 +172,18 @@
     <Compile Include="FormPublisher.Designer.cs">
       <DependentUpon>FormPublisher.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPurchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPurchaseOrder.Designer.cs">
+      <DependentUpon>FormPurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPurchaseOrderList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPurchaseOrderList.Designer.cs">
+      <DependentUpon>FormPurchaseOrderList.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,6 +331,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPublisher.resx">
       <DependentUpon>FormPublisher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPurchaseOrder.resx">
+      <DependentUpon>FormPurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPurchaseOrderList.resx">
+      <DependentUpon>FormPurchaseOrderList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegister.resx">
       <DependentUpon>FormRegister.cs</DependentUpon>

@@ -88,7 +88,7 @@
             this.mnuHelp});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1054, 28);
+            this.menuStrip2.Size = new System.Drawing.Size(1054, 30);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -195,7 +195,7 @@
             this.mnuManagePurchaseOrders,
             this.mnuStocktaking});
             this.mnuOperations.Name = "mnuOperations";
-            this.mnuOperations.Size = new System.Drawing.Size(93, 24);
+            this.mnuOperations.Size = new System.Drawing.Size(93, 26);
             this.mnuOperations.Text = "Nghiệp Vụ";
             // 
             // mnuSalesInvoices
@@ -217,12 +217,14 @@
             this.mnuPurchasing.Name = "mnuPurchasing";
             this.mnuPurchasing.Size = new System.Drawing.Size(231, 26);
             this.mnuPurchasing.Text = "Nhập Hàng";
+            this.mnuPurchasing.Click += new System.EventHandler(this.mnuPurchasing_Click);
             // 
             // mnuManagePurchaseOrders
             // 
             this.mnuManagePurchaseOrders.Name = "mnuManagePurchaseOrders";
             this.mnuManagePurchaseOrders.Size = new System.Drawing.Size(231, 26);
             this.mnuManagePurchaseOrders.Text = "Quản Lý Phiếu Nhập";
+            this.mnuManagePurchaseOrders.Click += new System.EventHandler(this.mnuManagePurchaseOrders_Click);
             // 
             // mnuStocktaking
             // 
@@ -340,9 +342,9 @@
             this.toolStripButton4,
             this.toolStripButton5,
             this.toolStripButton6});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 30);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1054, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1054, 31);
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -352,7 +354,7 @@
             this.mniBook.Image = ((System.Drawing.Image)(resources.GetObject("mniBook.Image")));
             this.mniBook.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mniBook.Name = "mniBook";
-            this.mniBook.Size = new System.Drawing.Size(29, 24);
+            this.mniBook.Size = new System.Drawing.Size(29, 28);
             this.mniBook.Text = "Thêm Sách";
             this.mniBook.Click += new System.EventHandler(this.mnuBooks_Click);
             // 
