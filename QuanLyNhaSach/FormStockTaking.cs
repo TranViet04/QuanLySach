@@ -70,13 +70,18 @@ namespace QuanLyNhaSach
             }
         }
 
-        // ================= LOAD INVENTORY =================
+        // ================= LOAD INVENTORY (WITH DEBUG) =================
         private void LoadInventory(string searchKeyword = null)
         {
             try
             {
                 dgvInventory.Rows.Clear();
                 ClearSelection();
+
+                // DEBUG: Log số sách và số inventory records
+                int totalBooksInDB = _db.Books.Count();
+                int totalInventoryInDB = _db.Inventories.Count();
+                DebugLogger.Log($"LoadInventory: Books={totalBooksInDB}, Inventory records={totalInventoryInDB}");
 
                 var query = _db.Books
                     .Include(b => b.Author)
@@ -95,14 +100,32 @@ namespace QuanLyNhaSach
 
                 var books = query.OrderBy(b => b.Title).ToList();
 
-                int totalBooks = 0;
+                int totalBooks = books.Count;
+                int checkedBooks = 0;
+                int totalSystemQuantity = 0;
+                int totalActualQuantity = 0;
                 int totalDifference = 0;
+                int booksWithZeroInventory = 0;
 
                 foreach (var book in books)
                 {
                     // Get system quantity from Inventory table
                     var inventory = _db.Inventories.Find(book.BookId);
                     int systemQuantity = inventory?.Quantity ?? 0;
+
+                    // DEBUG: Log nếu không tìm thấy inventory hoặc quantity = 0
+                    if (inventory == null)
+                    {
+                        DebugLogger.Log($"⚠️ BookId={book.BookId} ({book.Title}): No inventory record found");
+                        booksWithZeroInventory++;
+                    }
+                    else if (systemQuantity == 0)
+                    {
+                        DebugLogger.Log($"⚠️ BookId={book.BookId} ({book.Title}): Inventory exists but Quantity=0");
+                        booksWithZeroInventory++;
+                    }
+
+                    totalSystemQuantity += systemQuantity;
 
                     // Get actual quantity from StockTaking table (if checked today)
                     var todayStart = DateTime.Today;
@@ -165,19 +188,36 @@ namespace QuanLyNhaSach
                             dgvInventory.Rows[rowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
                         }
 
-                        totalBooks++;
+                        checkedBooks++;
+                        totalActualQuantity += actualQuantity;
                         totalDifference += Math.Abs(difference);
                     }
                 }
 
+                // DEBUG: Log summary
+                DebugLogger.Log($"LoadInventory Summary: Total={totalBooks}, SystemQty={totalSystemQuantity}, ZeroQty={booksWithZeroInventory}, Checked={checkedBooks}");
+
                 // Update statistics
-                lblTotalBooks.Text = $"Tổng số sách kiểm: {totalBooks}";
+                lblTotalBooks.Text = $"Tổng sách: {totalBooks} | Đã kiểm: {checkedBooks} | SL hệ thống: {totalSystemQuantity}";
                 lblTotalDifference.Text = $"Tổng chênh lệch: {totalDifference}";
+
+                // Hiển thị cảnh báo nếu có nhiều sách không có tồn kho
+                if (booksWithZeroInventory > totalBooks * 0.5) // Nếu > 50% sách có qty = 0
+                {
+                    MessageBox.Show(
+                        $"Cảnh báo: Có {booksWithZeroInventory}/{totalBooks} sách chưa có tồn kho!\n\n" +
+                        "Vui lòng kiểm tra:\n" +
+                        "1. Đã nhập hàng chưa?\n" +
+                        "2. Dữ liệu bảng Inventories có đúng không?",
+                        "Cảnh báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
 
                 dgvInventory.ClearSelection();
 
                 // Enable save button if there are checked items
-                btnSaveStockTaking.Enabled = totalBooks > 0;
+                btnSaveStockTaking.Enabled = checkedBooks > 0;
             }
             catch (Exception ex)
             {

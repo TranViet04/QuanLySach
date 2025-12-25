@@ -297,7 +297,7 @@ namespace QuanLyNhaSach
             txtTotal.Text = total.ToString("N0");
         }
 
-        // ================= SAVE =================
+        // ================= SAVE ================= (PHẦN CẦN SỬA)
         private void btnSaveOrder_Click(object sender, EventArgs e)
         {
             // Validation
@@ -339,13 +339,14 @@ namespace QuanLyNhaSach
 
                 _db.PurchaseOrders.Add(_purchaseOrder);
 
-                // Lưu chi tiết phiếu nhập
+                // Lưu chi tiết phiếu nhập VÀ cập nhật tồn kho
                 foreach (DataGridViewRow row in dgvPurchaseOrder.Rows)
                 {
                     int bookId = (int)row.Cells[colBookId.Name].Value;
                     int quantity = (int)row.Cells[colQuantity.Name].Value;
                     decimal costPrice = (decimal)row.Cells[colCostPrice.Name].Value;
 
+                    // Thêm chi tiết phiếu nhập
                     _db.PurchaseOrderDetails.Add(new PurchaseOrderDetail
                     {
                         PurchaseOrderId = _purchaseOrder.PurchaseOrderId,
@@ -354,37 +355,45 @@ namespace QuanLyNhaSach
                         CostPrice = costPrice
                     });
 
-                    // Cập nhật tồn kho (nếu có bảng Inventory)
+                    // ⭐ CẬP NHẬT TỒN KHO - PHẦN QUAN TRỌNG ⭐
                     var inventory = _db.Inventories.Find(bookId);
                     if (inventory != null)
                     {
+                        // Nếu đã có record, cộng thêm số lượng
                         inventory.Quantity += quantity;
                         inventory.LastUpdated = DateTime.Now;
+
+                        DebugLogger.Log($"Updated inventory: BookId={bookId}, OldQty={inventory.Quantity - quantity}, NewQty={inventory.Quantity}");
                     }
                     else
                     {
-                        _db.Inventories.Add(new Inventory
+                        // Nếu chưa có record, tạo mới
+                        var newInventory = new Inventory
                         {
                             BookId = bookId,
                             Quantity = quantity,
                             LastUpdated = DateTime.Now
-                        });
+                        };
+                        _db.Inventories.Add(newInventory);
+
+                        DebugLogger.Log($"Created new inventory: BookId={bookId}, Qty={quantity}");
                     }
                 }
 
+                // LƯU TẤT CẢ THAY ĐỔI
                 _db.SaveChanges();
 
                 // Hiển thị thông báo thành công
                 string message = "Lưu phiếu nhập thành công!\n\n";
                 message += $"Mã phiếu: {txtOrderCode.Text}\n";
                 message += $"Tổng tiền: {total.ToString("N0")} VNĐ\n";
-                message += $"Nhà phân phối: {cmbDistributor.Text}";
+                message += $"Nhà phân phối: {cmbDistributor.Text}\n";
+                message += $"Đã cập nhật tồn kho cho {dgvPurchaseOrder.Rows.Count} sách";
 
                 MessageBox.Show(message, "Thành công",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Log action
-                DebugLogger.Log($"Purchase Order created: {txtOrderCode.Text}, Total: {total}");
+                DebugLogger.Log($"Purchase Order created: {txtOrderCode.Text}, Total: {total}, Books: {dgvPurchaseOrder.Rows.Count}");
 
                 Close();
             }
@@ -403,7 +412,7 @@ namespace QuanLyNhaSach
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi lưu phiếu nhập:\n{ex.Message}", "Lỗi",
+                MessageBox.Show($"Lỗi khi lưu phiếu nhập:\n{ex.Message}\n\n{ex.InnerException?.Message}", "Lỗi",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DebugLogger.Log("Purchase Order save error: " + ex.ToString());
             }

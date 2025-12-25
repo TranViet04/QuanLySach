@@ -53,11 +53,21 @@ namespace QuanLyNhaSach.Data
             // Remove pluralizing convention nếu bạn muốn tên bảng trùng tên DbSet
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            // Ví dụ: nếu Inventory.BookId là khoá chính (đã đánh [Key])
+            // ===== INVENTORY CONFIGURATION (QUAN TRỌNG) =====
             modelBuilder.Entity<Inventory>()
                         .HasKey(i => i.BookId);
 
-            // Thiết lập quan hệ 1-n, nếu cần (nhiều thiết lập đã có bằng FK attribute)
+            modelBuilder.Entity<Inventory>()
+                        .Property(i => i.Quantity)
+                        .IsRequired()
+                        .HasColumnType("int");
+
+            modelBuilder.Entity<Inventory>()
+                        .Property(i => i.LastUpdated)
+                        .IsRequired()
+                        .HasColumnType("datetime");
+
+            // ===== BOOK RELATIONSHIPS =====
             modelBuilder.Entity<Book>()
                         .HasRequired(b => b.Category)
                         .WithMany(c => c.Books)
@@ -76,6 +86,12 @@ namespace QuanLyNhaSach.Data
                         .HasForeignKey(b => b.AuthorId)
                         .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Book>()
+                        .Property(b => b.Price)
+                        .HasColumnType("decimal")
+                        .HasPrecision(18, 2);
+
+            // ===== INVOICE RELATIONSHIPS =====
             modelBuilder.Entity<InvoiceDetail>()
                         .HasRequired(d => d.Invoice)
                         .WithMany(i => i.InvoiceDetails)
@@ -88,11 +104,38 @@ namespace QuanLyNhaSach.Data
                         .HasForeignKey(d => d.BookId)
                         .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Book>()
-                        .Property(b => b.Price)
-                        .HasColumnType("decimal")   // Chỉ ghi "decimal"
-                        .HasPrecision(18, 2);       // Độ dài và số thập phân
+            // ===== PURCHASE ORDER RELATIONSHIPS =====
+            modelBuilder.Entity<PurchaseOrderDetail>()
+                        .HasRequired(d => d.PurchaseOrder)
+                        .WithMany(po => po.PurchaseOrderDetails)
+                        .HasForeignKey(d => d.PurchaseOrderId)
+                        .WillCascadeOnDelete(true);
 
+            modelBuilder.Entity<PurchaseOrderDetail>()
+                        .HasRequired(d => d.Book)
+                        .WithMany()
+                        .HasForeignKey(d => d.BookId)
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<PurchaseOrderDetail>()
+                        .Property(d => d.CostPrice)
+                        .HasColumnType("decimal")
+                        .HasPrecision(18, 2);
+
+            // ===== STOCK TAKING RELATIONSHIPS =====
+            modelBuilder.Entity<StockTaking>()
+                        .HasRequired(st => st.Book)
+                        .WithMany()
+                        .HasForeignKey(st => st.BookId)
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<StockTaking>()
+                        .HasRequired(st => st.User)
+                        .WithMany()
+                        .HasForeignKey(st => st.UserId)
+                        .WillCascadeOnDelete(false);
+
+            // ===== USER-ROLE MANY-TO-MANY =====
             modelBuilder.Entity<User>()
                         .HasMany(u => u.Roles)
                         .WithMany(r => r.Users)
@@ -102,7 +145,6 @@ namespace QuanLyNhaSach.Data
                             m.MapLeftKey("UserId");
                             m.MapRightKey("RoleId");
                         });
-
 
             base.OnModelCreating(modelBuilder);
         }

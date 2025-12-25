@@ -216,6 +216,10 @@
     <Compile Include="Migrations\202512221513004_UpdateInvoice.Designer.cs">
       <DependentUpon>202512221513004_UpdateInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202512250614010_CapNhatBookvaInventory.cs" />
+    <Compile Include="Migrations\202512250614010_CapNhatBookvaInventory.Designer.cs">
+      <DependentUpon>202512250614010_CapNhatBookvaInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\DebugLogger.cs" />
     <Compile Include="Models\PasswordHelper.cs" />
     <Compile Include="Migrations\202512070635408_AddUserLogAndBackupLog.cs" />
@@ -388,6 +392,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202512221513004_UpdateInvoice.resx">
       <DependentUpon>202512221513004_UpdateInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202512250614010_CapNhatBookvaInventory.resx">
+      <DependentUpon>202512250614010_CapNhatBookvaInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
