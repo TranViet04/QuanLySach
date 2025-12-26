@@ -4,7 +4,9 @@ using System;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace QuanLyNhaSach
 {
@@ -110,7 +112,7 @@ namespace QuanLyNhaSach
                 foreach (var book in books)
                 {
                     // Get system quantity from Inventory table
-                    var inventory = _db.Inventories.Find(book.BookId);
+                    var inventory = _db.Inventories.FirstOrDefault(i => i.BookId == book.BookId);
                     int systemQuantity = inventory?.Quantity ?? 0;
 
                     // DEBUG: Log nếu không tìm thấy inventory hoặc quantity = 0

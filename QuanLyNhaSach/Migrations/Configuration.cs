@@ -1,6 +1,8 @@
 ﻿namespace QuanLyNhaSach.Migrations
 {
+    using QuanLyNhaSach.Models;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -14,10 +16,23 @@
 
         protected override void Seed(QuanLyNhaSach.Data.BookStoreContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            // Tạo role
+            var adminRole = new Role { Name = "Admin" };
+            var staffRole = new Role { Name = "Staff" };
+            context.Roles.AddOrUpdate(r => r.Name, adminRole, staffRole);
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-            //  to avoid creating duplicate seed data.
+            // Tạo admin user
+            var admin = new User
+            {
+                Username = "admin",
+                PasswordHash = PasswordHelper.HashPassword("123456"),
+                FullName = "Quản trị viên",
+                IsActive = true,
+                Roles = new List<Role> { adminRole }
+            };
+            context.Users.AddOrUpdate(u => u.Username, admin);
+
+            context.SaveChanges();
         }
     }
 }

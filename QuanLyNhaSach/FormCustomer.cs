@@ -97,7 +97,7 @@ namespace QuanLyNhaSach
                 foreach (var customer in customers)
                 {
                     dgvCustomer.Rows.Add(
-                        customer.ID,
+                        customer.CustomerId,
                         Convert.ToString(customer.Name),
                         Convert.ToString(customer.Sex),
                         Convert.ToString(customer.Bio),
@@ -188,7 +188,7 @@ namespace QuanLyNhaSach
             {
                 using (var db = new BookStoreContext())
                 {
-                    var customer = db.Customers.FirstOrDefault(c => c.ID == id);
+                    var customer = db.Customers.FirstOrDefault(c => c.CustomerId == id);
                     if (customer == null)
                     {
                         MessageBox.Show("Không tìm thấy khách hàng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -196,7 +196,7 @@ namespace QuanLyNhaSach
                     }
 
                     // check duplicate name (excluding current)
-                    if (db.Customers.Any(c => c.ID != id && c.Name.ToLower() == name.ToLower()))
+                    if (db.Customers.Any(c => c.CustomerId != id && c.Name.ToLower() == name.ToLower()))
                     {
                         MessageBox.Show("Tên khách hàng đã tồn tại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
@@ -250,7 +250,7 @@ namespace QuanLyNhaSach
             {
                 using (var db = new BookStoreContext())
                 {
-                    var customer = db.Customers.FirstOrDefault(c => c.ID == id);
+                    var customer = db.Customers.FirstOrDefault(c => c.CustomerId == id);
                     if (customer == null)
                     {
                         MessageBox.Show("Không tìm thấy khách hàng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);

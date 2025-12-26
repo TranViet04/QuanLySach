@@ -13,16 +13,13 @@ namespace QuanLyNhaSach.Data
 {
     public class BookStoreContext : DbContext
     {
-        // Nếu bạn muốn đặt connection string tên "BookStoreContext" trong app.config/web.config
         public BookStoreContext()
             : base("name=BookStoreContext")
         {
-            // Tắt lazy loading nếu bạn muốn kiểm soát việc load navigation properties
             this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = false;
         }
 
-        // DbSets cho các entity chính
         public DbSet<Book> Books { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
@@ -44,18 +41,36 @@ namespace QuanLyNhaSach.Data
         public DbSet<UserLog> UserLogs { get; set; }
         public DbSet<BackupLog> BackupLogs { get; set; }
 
-
-
-        // NOTE: Report models are [NotMapped] so không cần DbSet cho chúng.
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // Remove pluralizing convention nếu bạn muốn tên bảng trùng tên DbSet
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            // ===== INVENTORY CONFIGURATION (QUAN TRỌNG) =====
+            // ===== CUSTOMER CONFIGURATION =====
+            modelBuilder.Entity<Customer>()
+                        .HasKey(c => c.CustomerId);
+
+            // ===== INVOICE RELATIONSHIPS =====
+            modelBuilder.Entity<Invoice>()
+                        .HasRequired(i => i.Customer)
+                        .WithMany(c => c.Invoices)
+                        .HasForeignKey(i => i.CustomerId)
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Invoice>()
+                        .HasRequired(i => i.User)
+                        .WithMany()
+                        .HasForeignKey(i => i.UserId)
+                        .WillCascadeOnDelete(false);
+
+            // ===== INVENTORY CONFIGURATION =====
             modelBuilder.Entity<Inventory>()
-                        .HasKey(i => i.BookId);
+                        .HasKey(i => i.InventoryId);  // ✓ Đổi thành InventoryId
+
+            modelBuilder.Entity<Inventory>()
+                        .HasRequired(i => i.Book)
+                        .WithMany()
+                        .HasForeignKey(i => i.BookId)
+                        .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Inventory>()
                         .Property(i => i.Quantity)
@@ -87,11 +102,17 @@ namespace QuanLyNhaSach.Data
                         .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Book>()
+                        .HasOptional(b => b.Distributor)
+                        .WithMany()
+                        .HasForeignKey(b => b.DistributorId)
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Book>()
                         .Property(b => b.Price)
                         .HasColumnType("decimal")
                         .HasPrecision(18, 2);
 
-            // ===== INVOICE RELATIONSHIPS =====
+            // ===== INVOICE DETAILS RELATIONSHIPS =====
             modelBuilder.Entity<InvoiceDetail>()
                         .HasRequired(d => d.Invoice)
                         .WithMany(i => i.InvoiceDetails)
@@ -105,6 +126,18 @@ namespace QuanLyNhaSach.Data
                         .WillCascadeOnDelete(false);
 
             // ===== PURCHASE ORDER RELATIONSHIPS =====
+            modelBuilder.Entity<PurchaseOrder>()
+                        .HasRequired(po => po.User)
+                        .WithMany()
+                        .HasForeignKey(po => po.UserId)
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<PurchaseOrder>()
+                        .HasRequired(po => po.Distributor)
+                        .WithMany(d => d.PurchaseOrders)
+                        .HasForeignKey(po => po.DistributorId)
+                        .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<PurchaseOrderDetail>()
                         .HasRequired(d => d.PurchaseOrder)
                         .WithMany(po => po.PurchaseOrderDetails)
@@ -134,6 +167,19 @@ namespace QuanLyNhaSach.Data
                         .WithMany()
                         .HasForeignKey(st => st.UserId)
                         .WillCascadeOnDelete(false);
+
+            // ===== USER LOG & BACKUP LOG RELATIONSHIPS =====
+            modelBuilder.Entity<UserLog>()
+                        .HasRequired(ul => ul.User)
+                        .WithMany()
+                        .HasForeignKey(ul => ul.UserId)
+                        .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<BackupLog>()
+                        .HasRequired(bl => bl.User)
+                        .WithMany()
+                        .HasForeignKey(bl => bl.UserId)
+                        .WillCascadeOnDelete(true);
 
             // ===== USER-ROLE MANY-TO-MANY =====
             modelBuilder.Entity<User>()

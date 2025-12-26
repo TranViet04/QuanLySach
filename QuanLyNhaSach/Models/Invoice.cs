@@ -37,6 +37,8 @@ namespace QuanLyNhaSach.Models
 
         // Navigation
         public virtual User User { get; set; }
+
+        [ForeignKey(nameof(CustomerId))]
         public virtual Customer Customer { get; set; }
 
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }

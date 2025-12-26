@@ -195,7 +195,7 @@
             this.mnuManagePurchaseOrders,
             this.mnuStocktaking});
             this.mnuOperations.Name = "mnuOperations";
-            this.mnuOperations.Size = new System.Drawing.Size(93, 26);
+            this.mnuOperations.Size = new System.Drawing.Size(93, 24);
             this.mnuOperations.Text = "Nghiệp Vụ";
             // 
             // mnuSalesInvoices

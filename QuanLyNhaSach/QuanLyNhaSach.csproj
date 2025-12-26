@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\DeTaiWindow\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\..\DeTaiWindow\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
   <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -56,10 +55,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\DeTaiWindow\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\DeTaiWindow\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -208,58 +207,13 @@
     <Compile Include="FormUserManagement.Designer.cs">
       <DependentUpon>FormUserManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202512201814265_UppdataAuthor.cs" />
-    <Compile Include="Migrations\202512201814265_UppdataAuthor.Designer.cs">
-      <DependentUpon>202512201814265_UppdataAuthor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202512221513004_UpdateInvoice.cs" />
-    <Compile Include="Migrations\202512221513004_UpdateInvoice.Designer.cs">
-      <DependentUpon>202512221513004_UpdateInvoice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202512250614010_CapNhatBookvaInventory.cs" />
-    <Compile Include="Migrations\202512250614010_CapNhatBookvaInventory.Designer.cs">
-      <DependentUpon>202512250614010_CapNhatBookvaInventory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DebugLogger.cs" />
-    <Compile Include="Models\PasswordHelper.cs" />
-    <Compile Include="Migrations\202512070635408_AddUserLogAndBackupLog.cs" />
-    <Compile Include="Migrations\202512070635408_AddUserLogAndBackupLog.Designer.cs">
-      <DependentUpon>202512070635408_AddUserLogAndBackupLog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202512071927361_UpdateDecimalPrecision.cs" />
-    <Compile Include="Migrations\202512071927361_UpdateDecimalPrecision.Designer.cs">
-      <DependentUpon>202512071927361_UpdateDecimalPrecision.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202512081200000_AddCategoryUniqueIndex.cs" />
-    <Compile Include="Migrations\202512090400534_FixCustomer.cs" />
-    <Compile Include="Migrations\202512090400534_FixCustomer.Designer.cs">
-      <DependentUpon>202512090400534_FixCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202512091452299_UpdateImage.cs" />
-    <Compile Include="Migrations\202512091452299_UpdateImage.Designer.cs">
-      <DependentUpon>202512091452299_UpdateImage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202512100700549_UpDistributorName.cs" />
-    <Compile Include="Migrations\202512100700549_UpDistributorName.Designer.cs">
-      <DependentUpon>202512100700549_UpDistributorName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202512160321239_AddUserAndRoleTables.cs" />
-    <Compile Include="Migrations\202512160321239_AddUserAndRoleTables.Designer.cs">
-      <DependentUpon>202512160321239_AddUserAndRoleTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202512160410506_FixLoiPhanQuyen.cs" />
-    <Compile Include="Migrations\202512160410506_FixLoiPhanQuyen.Designer.cs">
-      <DependentUpon>202512160410506_FixLoiPhanQuyen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202512181237064_ThayDoiUserRole.cs" />
-    <Compile Include="Migrations\202512181237064_ThayDoiUserRole.Designer.cs">
-      <DependentUpon>202512181237064_ThayDoiUserRole.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202512181357004_RoleXoaMinLength.cs" />
-    <Compile Include="Migrations\202512181357004_RoleXoaMinLength.Designer.cs">
-      <DependentUpon>202512181357004_RoleXoaMinLength.cs</DependentUpon>
+    <Compile Include="Migrations\202512260206517_InitialCreate.cs" />
+    <Compile Include="Migrations\202512260206517_InitialCreate.Designer.cs">
+      <DependentUpon>202512260206517_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DebugLogger.cs" />
+    <Compile Include="Models\PasswordHelper.cs" />
     <Compile Include="Models\MonthlyRevenueModel.cs" />
     <Compile Include="Models\AuthorizationHelper.cs" />
     <Compile Include="Models\BackupLog.cs" />
@@ -360,41 +314,8 @@
     <EmbeddedResource Include="FormUserManagement.resx">
       <DependentUpon>FormUserManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202512070635408_AddUserLogAndBackupLog.resx">
-      <DependentUpon>202512070635408_AddUserLogAndBackupLog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202512071927361_UpdateDecimalPrecision.resx">
-      <DependentUpon>202512071927361_UpdateDecimalPrecision.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202512090400534_FixCustomer.resx">
-      <DependentUpon>202512090400534_FixCustomer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202512091452299_UpdateImage.resx">
-      <DependentUpon>202512091452299_UpdateImage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202512100700549_UpDistributorName.resx">
-      <DependentUpon>202512100700549_UpDistributorName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202512160321239_AddUserAndRoleTables.resx">
-      <DependentUpon>202512160321239_AddUserAndRoleTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202512160410506_FixLoiPhanQuyen.resx">
-      <DependentUpon>202512160410506_FixLoiPhanQuyen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202512181237064_ThayDoiUserRole.resx">
-      <DependentUpon>202512181237064_ThayDoiUserRole.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202512181357004_RoleXoaMinLength.resx">
-      <DependentUpon>202512181357004_RoleXoaMinLength.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202512201814265_UppdataAuthor.resx">
-      <DependentUpon>202512201814265_UppdataAuthor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202512221513004_UpdateInvoice.resx">
-      <DependentUpon>202512221513004_UpdateInvoice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202512250614010_CapNhatBookvaInventory.resx">
-      <DependentUpon>202512250614010_CapNhatBookvaInventory.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202512260206517_InitialCreate.resx">
+      <DependentUpon>202512260206517_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -432,6 +353,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -439,9 +361,6 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
-    <Error Condition="!Exists('..\..\DeTaiWindow\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\DeTaiWindow\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\..\DeTaiWindow\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\DeTaiWindow\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
-  <Import Project="..\..\DeTaiWindow\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\..\DeTaiWindow\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
 </Project>

@@ -88,7 +88,7 @@ namespace QuanLyNhaSach
 
             cmbCustomer.DataSource = null;
             cmbCustomer.DisplayMember = "Name";
-            cmbCustomer.ValueMember = "ID";
+            cmbCustomer.ValueMember = "CustomerId";
             cmbCustomer.DataSource = customers;
 
             cmbCustomer.SelectedIndex = -1;
@@ -223,13 +223,36 @@ namespace QuanLyNhaSach
                 return;
             }
 
-            // Kiểm tra tồn kho (nếu có thuộc tính Stock)
-            // if (qty > _selectedBook.Stock)
-            // {
-            //     MessageBox.Show($"Chỉ còn {_selectedBook.Stock} cuốn trong kho", "Cảnh báo",
-            //         MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //     return;
-            // }
+            // ⭐ KIỂM TRA TỒN KHO
+            var inventory = _db.Inventories.FirstOrDefault(i => i.BookId == _selectedBook.BookId);
+            int availableQty = inventory?.Quantity ?? 0;
+
+            // Tính tổng số lượng đã có trong giỏ (nếu có)
+            int qtyInCart = 0;
+            foreach (DataGridViewRow row in dgvInvoice.Rows)
+            {
+                if ((int)row.Cells[colBookId.Name].Value == _selectedBook.BookId)
+                {
+                    qtyInCart = (int)row.Cells[colQuantity.Name].Value;
+                    break;
+                }
+            }
+
+            int totalNeeded = qtyInCart + qty;
+            if (totalNeeded > availableQty)
+            {
+                MessageBox.Show(
+                    $"Không đủ hàng trong kho!\n\n" +
+                    $"Tồn kho: {availableQty} cuốn\n" +
+                    $"Trong giỏ: {qtyInCart} cuốn\n" +
+                    $"Yêu cầu thêm: {qty} cuốn\n" +
+                    $"Tổng cần: {totalNeeded} cuốn\n\n" +
+                    $"Chỉ có thể thêm tối đa {availableQty - qtyInCart} cuốn nữa.",
+                    "Cảnh báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
 
             if (_selectedBook.Price <= 0)
             {
@@ -248,17 +271,8 @@ namespace QuanLyNhaSach
             {
                 if ((int)row.Cells[colBookId.Name].Value == _selectedBook.BookId)
                 {
-                    // Cộng dồn số lượng thay vì ghi đè
                     int currentQty = (int)row.Cells[colQuantity.Name].Value;
                     int newQty = currentQty + qty;
-
-                    // Kiểm tra tồn kho với số lượng mới
-                    // if (newQty > _selectedBook.Stock)
-                    // {
-                    //     MessageBox.Show($"Chỉ còn {_selectedBook.Stock} cuốn trong kho", "Cảnh báo",
-                    //         MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //     return;
-                    // }
 
                     row.Cells[colQuantity.Name].Value = newQty;
                     row.Cells[colAmount.Name].Value = newQty * price;
@@ -449,12 +463,30 @@ namespace QuanLyNhaSach
                         Price = price
                     });
 
-                    // Cập nhật tồn kho (nếu có thuộc tính Stock)
-                    // var book = _db.Books.Find(bookId);
-                    // if (book != null)
-                    // {
-                    //     book.Stock -= quantity;
-                    // }
+                    // ⭐ CẬP NHẬT TỒN KHO - TRỪ SỐ LƯỢNG ĐÃ BÁN
+                    var inventory = _db.Inventories.FirstOrDefault(i => i.BookId == bookId);
+                    if (inventory != null)
+                    {
+                        // Kiểm tra lại tồn kho (đề phòng thay đổi giữa lúc thêm và lưu)
+                        if (inventory.Quantity < quantity)
+                        {
+                            var book = _db.Books.Find(bookId);
+                            throw new Exception(
+                                $"Sách '{book?.Title ?? "N/A"}' không đủ hàng trong kho!\n" +
+                                $"Tồn kho: {inventory.Quantity}, Yêu cầu: {quantity}");
+                        }
+
+                        // Trừ số lượng
+                        inventory.Quantity -= quantity;
+                        inventory.LastUpdated = DateTime.Now;
+
+                        DebugLogger.Log($"Invoice: Sold BookId={bookId}, Qty={quantity}, RemainingQty={inventory.Quantity}");
+                    }
+                    else
+                    {
+                        var book = _db.Books.Find(bookId);
+                        throw new Exception($"Sách '{book?.Title ?? "N/A"}' không có trong kho!");
+                    }
                 }
 
                 _db.SaveChanges();

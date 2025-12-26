@@ -356,7 +356,7 @@ namespace QuanLyNhaSach
                     });
 
                     // ⭐ CẬP NHẬT TỒN KHO - PHẦN QUAN TRỌNG ⭐
-                    var inventory = _db.Inventories.Find(bookId);
+                    var inventory = _db.Inventories.FirstOrDefault(i => i.BookId == bookId);
                     if (inventory != null)
                     {
                         // Nếu đã có record, cộng thêm số lượng

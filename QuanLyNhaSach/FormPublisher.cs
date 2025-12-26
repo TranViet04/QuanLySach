@@ -73,12 +73,9 @@ namespace QuanLyNhaSach
                         return;
                     }
 
-                    if (string.IsNullOrWhiteSpace(txtPublisherName.Text) || 
-                        string.IsNullOrWhiteSpace(txtAddress.Text) || 
-                        string.IsNullOrWhiteSpace(txtPhone.Text) || 
-                        string.IsNullOrWhiteSpace(txtEmail.Text))
+                    if (string.IsNullOrWhiteSpace(txtPublisherName.Text))
                     {
-                        MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Vui lòng nhập tên nhà xuất bản.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         if (string.IsNullOrWhiteSpace(txtPublisherName.Text))
                         {
                             txtPublisherName.BackColor = System.Drawing.Color.MistyRose;
@@ -124,10 +121,9 @@ namespace QuanLyNhaSach
             errWarning.SetError(txtPublisherName, "");
             txtPublisherName.BackColor = System.Drawing.Color.White;
 
-            if (string.IsNullOrWhiteSpace(publisherName) || string.IsNullOrWhiteSpace(address) ||
-                string.IsNullOrWhiteSpace(phone) || string.IsNullOrWhiteSpace(email))
+            if (string.IsNullOrWhiteSpace(publisherName))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập tên nhà xuất bản.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 if (string.IsNullOrWhiteSpace(publisherName))
                 {
                     txtPublisherName.BackColor = System.Drawing.Color.MistyRose;

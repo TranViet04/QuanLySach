@@ -59,6 +59,13 @@ namespace QuanLyNhaSach
 
             // Thêm event double-click để xem chi tiết
             dgvInvoiceManagement.CellDoubleClick += dgvInvoiceManagement_CellDoubleClick;
+
+            // Style cho DataGridView
+            dgvInvoiceManagement.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 123, 255);
+            dgvInvoiceManagement.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvInvoiceManagement.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            dgvInvoiceManagement.EnableHeadersVisualStyles = false;
+            dgvInvoiceManagement.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
         }
 
         // Cấu hình các TextBox thông tin là ReadOnly
@@ -132,13 +139,12 @@ namespace QuanLyNhaSach
                 if (!string.IsNullOrWhiteSpace(customerFilter))
                     query = query.Where(i => i.Customer.Name.Contains(customerFilter));
 
-                // Sửa logic filter status
                 if (statusFilter.HasValue)
                     query = query.Where(i => i.Status == statusFilter.Value);
 
                 var invoices = query.OrderByDescending(i => i.CreatedDate).ToList();
 
-                // Thêm màu sắc cho status
+                // Thêm dữ liệu vào DataGridView (KHÔNG CÒN CÁC CỘT BUTTON)
                 foreach (var inv in invoices)
                 {
                     string statusText = inv.Status == 1 ? "Đã thanh toán" : "Chưa thanh toán";
@@ -149,11 +155,7 @@ namespace QuanLyNhaSach
                         inv.Customer?.Name ?? "",
                         inv.User?.FullName ?? "",
                         inv.TotalAmount.ToString("N0", vnCulture) + " VNĐ",
-                        statusText,
-                        "Xem",
-                        "In",
-                        "Sửa",
-                        "Xóa"
+                        statusText
                     );
 
                     dgvInvoiceManagement.Rows[rowIndex].Tag = inv.InvoiceId;
@@ -192,14 +194,19 @@ namespace QuanLyNhaSach
         {
             if (invoices == null || invoices.Count == 0)
             {
-                this.Text = "Quản Lý Hóa Đơn";
+                lblCountValue.Text = "0";
+                lblRevenueValue.Text = "0 VNĐ";
                 return;
             }
 
             decimal totalRevenue = invoices.Sum(i => i.TotalAmount);
             int paidCount = invoices.Count(i => i.Status == 1);
 
-            this.Text = $"Quản Lý Hóa Đơn - Tổng: {invoices.Count} | Doanh thu: {totalRevenue.ToString("N0", vnCulture)} VNĐ | Đã TT: {paidCount}";
+            lblCountValue.Text = $"{invoices.Count}";
+            lblRevenueValue.Text = $"{totalRevenue.ToString("N0", vnCulture)} VNĐ";
+
+            // Cập nhật title bar
+            this.Text = $"Quản Lý Hóa Đơn - {invoices.Count} hóa đơn | Đã thanh toán: {paidCount}";
         }
 
         // ================= LOADING INDICATOR =================
@@ -350,40 +357,6 @@ namespace QuanLyNhaSach
             btnEdit.Enabled = false;
             btnPrint.Enabled = false;
             btnDelete.Enabled = false;
-        }
-
-        // ================= CELL CLICK =================
-        private void dgvInvoiceManagement_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-
-            try
-            {
-                var row = dgvInvoiceManagement.Rows[e.RowIndex];
-                int invoiceId = Convert.ToInt32(row.Tag);
-                string columnName = dgvInvoiceManagement.Columns[e.ColumnIndex].Name;
-
-                switch (columnName)
-                {
-                    case "Column7": // Xem
-                        ViewInvoice(invoiceId);
-                        break;
-                    case "Column10": // In
-                        PrintInvoice(invoiceId);
-                        break;
-                    case "Column8": // Sửa
-                        EditInvoice(invoiceId);
-                        break;
-                    case "Column9": // Xóa
-                        DeleteInvoice(invoiceId);
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi khi xử lý: {ex.Message}", "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         // ================= DOUBLE CLICK =================

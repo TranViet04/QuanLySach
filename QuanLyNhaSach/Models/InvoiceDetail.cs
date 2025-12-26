@@ -6,37 +6,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyNhaSach.Models
+namespace QuanLyNhaSach.Models.QuanLyNhaSach.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-
-    namespace QuanLyNhaSach.Models
+    public class InvoiceDetail
     {
-        public class InvoiceDetail
-        {
-            [Key]
-            public int InvoiceDetailId { get; set; }
+        [Key]
+        public int InvoiceDetailId { get; set; }
 
-            [ForeignKey("Invoice")]
-            public int InvoiceId { get; set; }
+        [ForeignKey("Invoice")]
+        public int InvoiceId { get; set; }
 
-            [ForeignKey("Book")]
-            public int BookId { get; set; }
+        [ForeignKey("Book")]
+        public int BookId { get; set; }
 
-            public int Quantity { get; set; }
+        public int Quantity { get; set; }
 
-            public decimal Price { get; set; }
+        public decimal Price { get; set; }
 
-            [NotMapped]
-            public decimal Amount => Quantity * Price;
+        [NotMapped]
+        public decimal Amount => Quantity * Price;
 
-            // Navigation
-            public virtual Invoice Invoice { get; set; }
-            public virtual Book Book { get; set; }
-        }
+        // Navigation
+        public virtual Invoice Invoice { get; set; }
+        public virtual Book Book { get; set; }
     }
-
 }
