@@ -344,5 +344,15 @@ namespace QuanLyNhaSach
         {
             OpenChildForm(new FormStockTaking());
         }
+
+        private void mnuMonthlySales_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FrmThongKeTheoThang());
+        }
+
+        private void mnuSalesByGenre_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FrmThongKeTheoTheLoai());
+        }
     }
 }

@@ -195,7 +195,7 @@
             this.mnuManagePurchaseOrders,
             this.mnuStocktaking});
             this.mnuOperations.Name = "mnuOperations";
-            this.mnuOperations.Size = new System.Drawing.Size(93, 26);
+            this.mnuOperations.Size = new System.Drawing.Size(93, 24);
             this.mnuOperations.Text = "Nghiệp Vụ";
             // 
             // mnuSalesInvoices
@@ -247,25 +247,27 @@
             // mnuMonthlySales
             // 
             this.mnuMonthlySales.Name = "mnuMonthlySales";
-            this.mnuMonthlySales.Size = new System.Drawing.Size(261, 26);
-            this.mnuMonthlySales.Text = "Doanh Thu Theo Tháng";
+            this.mnuMonthlySales.Size = new System.Drawing.Size(267, 26);
+            this.mnuMonthlySales.Text = "Doanh Thu Theo Thời gian";
+            this.mnuMonthlySales.Click += new System.EventHandler(this.mnuMonthlySales_Click);
             // 
             // mnuSalesByGenre
             // 
             this.mnuSalesByGenre.Name = "mnuSalesByGenre";
-            this.mnuSalesByGenre.Size = new System.Drawing.Size(261, 26);
+            this.mnuSalesByGenre.Size = new System.Drawing.Size(267, 26);
             this.mnuSalesByGenre.Text = "Doanh Thu Theo Thể Loại";
+            this.mnuSalesByGenre.Click += new System.EventHandler(this.mnuSalesByGenre_Click);
             // 
             // StockReport
             // 
             this.StockReport.Name = "StockReport";
-            this.StockReport.Size = new System.Drawing.Size(261, 26);
+            this.StockReport.Size = new System.Drawing.Size(267, 26);
             this.StockReport.Text = "Báo Cáo Tồn Kho";
             // 
             // mnuExportToExcel
             // 
             this.mnuExportToExcel.Name = "mnuExportToExcel";
-            this.mnuExportToExcel.Size = new System.Drawing.Size(261, 26);
+            this.mnuExportToExcel.Size = new System.Drawing.Size(267, 26);
             this.mnuExportToExcel.Text = "Xuất Excel";
             // 
             // mnuHelp

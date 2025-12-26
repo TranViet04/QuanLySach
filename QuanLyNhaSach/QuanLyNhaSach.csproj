@@ -84,6 +84,7 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -207,6 +208,18 @@
     <Compile Include="FormUserManagement.Designer.cs">
       <DependentUpon>FormUserManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmThongKeTheoThang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmThongKeTheoThang.Designer.cs">
+      <DependentUpon>FrmThongKeTheoThang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmThongKeTheoTheLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmThongKeTheoTheLoai.Designer.cs">
+      <DependentUpon>FrmThongKeTheoTheLoai.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202512201814265_UppdataAuthor.cs" />
     <Compile Include="Migrations\202512201814265_UppdataAuthor.Designer.cs">
       <DependentUpon>202512201814265_UppdataAuthor.cs</DependentUpon>
@@ -264,6 +277,7 @@
     <Compile Include="Models\BackupLog.cs" />
     <Compile Include="Models\CurrentUser.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\TheLoaiStats.cs" />
     <Compile Include="Models\UserLog.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
@@ -358,6 +372,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUserManagement.resx">
       <DependentUpon>FormUserManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmThongKeTheoThang.resx">
+      <DependentUpon>FrmThongKeTheoThang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmThongKeTheoTheLoai.resx">
+      <DependentUpon>FrmThongKeTheoTheLoai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202512070635408_AddUserLogAndBackupLog.resx">
       <DependentUpon>202512070635408_AddUserLogAndBackupLog.cs</DependentUpon>

@@ -81,6 +81,7 @@
             // 
             // dtpOrderDate
             // 
+            this.dtpOrderDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpOrderDate.Location = new System.Drawing.Point(150, 65);
             this.dtpOrderDate.Name = "dtpOrderDate";
             this.dtpOrderDate.Size = new System.Drawing.Size(450, 22);
