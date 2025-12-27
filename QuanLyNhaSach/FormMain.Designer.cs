@@ -249,12 +249,14 @@
             this.mnuMonthlySales.Name = "mnuMonthlySales";
             this.mnuMonthlySales.Size = new System.Drawing.Size(261, 26);
             this.mnuMonthlySales.Text = "Doanh Thu Theo Tháng";
+            this.mnuMonthlySales.Click += new System.EventHandler(this.mnuMonthlySales_Click);
             // 
             // mnuSalesByGenre
             // 
             this.mnuSalesByGenre.Name = "mnuSalesByGenre";
             this.mnuSalesByGenre.Size = new System.Drawing.Size(261, 26);
             this.mnuSalesByGenre.Text = "Doanh Thu Theo Thể Loại";
+            this.mnuSalesByGenre.Click += new System.EventHandler(this.mnuSalesByGenre_Click);
             // 
             // StockReport
             // 
