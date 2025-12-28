@@ -1,6 +1,5 @@
 ﻿using QuanLyNhaSach.Data;
 using QuanLyNhaSach.Models;
-using QuanLyNhaSach.Models.QuanLyNhaSach.Models;
 using System;
 using System.Data.Entity;
 using System.Linq;
@@ -85,8 +84,8 @@ namespace QuanLyNhaSach
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Chức năng in hóa đơn đang được phát triển", "Thông báo",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var form = new FormReport("Invoice", _invoiceId);
+            form.ShowDialog();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

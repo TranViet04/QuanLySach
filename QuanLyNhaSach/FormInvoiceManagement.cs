@@ -1,6 +1,5 @@
 ﻿using QuanLyNhaSach.Data;
 using QuanLyNhaSach.Models;
-using QuanLyNhaSach.Models.QuanLyNhaSach.Models;
 using System;
 using System.Data.Entity;
 using System.Drawing;
@@ -392,8 +391,8 @@ namespace QuanLyNhaSach
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            if (_selectedInvoiceId > 0)
-                PrintInvoice(_selectedInvoiceId);
+            var form = new FormReport("Invoice", _selectedInvoiceId);
+            form.ShowDialog();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

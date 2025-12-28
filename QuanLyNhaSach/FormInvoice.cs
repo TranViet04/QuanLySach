@@ -1,6 +1,5 @@
 ﻿using QuanLyNhaSach.Data;
 using QuanLyNhaSach.Models;
-using QuanLyNhaSach.Models.QuanLyNhaSach.Models;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Validation;

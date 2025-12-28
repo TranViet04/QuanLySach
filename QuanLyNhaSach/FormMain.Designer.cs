@@ -72,6 +72,7 @@
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
+            this.menuBaoCaoDoanhThu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -238,6 +239,7 @@
             this.mnuStatisticsReports.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuMonthlySales,
             this.mnuSalesByGenre,
+            this.menuBaoCaoDoanhThu,
             this.StockReport,
             this.mnuExportToExcel});
             this.mnuStatisticsReports.Name = "mnuStatisticsReports";
@@ -247,27 +249,28 @@
             // mnuMonthlySales
             // 
             this.mnuMonthlySales.Name = "mnuMonthlySales";
-            this.mnuMonthlySales.Size = new System.Drawing.Size(261, 26);
+            this.mnuMonthlySales.Size = new System.Drawing.Size(293, 26);
             this.mnuMonthlySales.Text = "Doanh Thu Theo Tháng";
             this.mnuMonthlySales.Click += new System.EventHandler(this.mnuMonthlySales_Click);
             // 
             // mnuSalesByGenre
             // 
             this.mnuSalesByGenre.Name = "mnuSalesByGenre";
-            this.mnuSalesByGenre.Size = new System.Drawing.Size(261, 26);
+            this.mnuSalesByGenre.Size = new System.Drawing.Size(293, 26);
             this.mnuSalesByGenre.Text = "Doanh Thu Theo Thể Loại";
             this.mnuSalesByGenre.Click += new System.EventHandler(this.mnuSalesByGenre_Click);
             // 
             // StockReport
             // 
             this.StockReport.Name = "StockReport";
-            this.StockReport.Size = new System.Drawing.Size(261, 26);
+            this.StockReport.Size = new System.Drawing.Size(293, 26);
             this.StockReport.Text = "Báo Cáo Tồn Kho";
+            this.StockReport.Click += new System.EventHandler(this.StockReport_Click);
             // 
             // mnuExportToExcel
             // 
             this.mnuExportToExcel.Name = "mnuExportToExcel";
-            this.mnuExportToExcel.Size = new System.Drawing.Size(261, 26);
+            this.mnuExportToExcel.Size = new System.Drawing.Size(293, 26);
             this.mnuExportToExcel.Text = "Xuất Excel";
             // 
             // mnuHelp
@@ -415,6 +418,13 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // menuBaoCaoDoanhThu
+            // 
+            this.menuBaoCaoDoanhThu.Name = "menuBaoCaoDoanhThu";
+            this.menuBaoCaoDoanhThu.Size = new System.Drawing.Size(293, 26);
+            this.menuBaoCaoDoanhThu.Text = "Báo Cáo Doanh Thu Bán Hàng";
+            this.menuBaoCaoDoanhThu.Click += new System.EventHandler(this.menuBaoCaoDoanhThu_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -482,5 +492,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuDistributor;
         private System.Windows.Forms.ToolStripMenuItem mnuCustomers;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
+        private System.Windows.Forms.ToolStripMenuItem menuBaoCaoDoanhThu;
     }
 }

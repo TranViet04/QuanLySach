@@ -1,6 +1,5 @@
 ﻿using QuanLyNhaSach.Models;
 using QuanLyNhaSach.Models.HeThong;
-using QuanLyNhaSach.Models.QuanLyNhaSach.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

@@ -354,5 +354,24 @@ namespace QuanLyNhaSach
         {
             OpenChildForm(new FrmThongKeTheoTheLoai());
         }
+
+        private void StockReport_Click(object sender, EventArgs e)
+        {
+            var form = new FormReport("Inventory");
+            form.ShowDialog();
+        }
+
+        private void menuBaoCaoDoanhThu_Click(object sender, EventArgs e)
+        {
+            // Mặc định: Tháng hiện tại
+            var param = new
+            {
+                FromDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1),
+                ToDate = DateTime.Now
+            };
+
+            var form = new FormReport("Revenue", param);
+            form.ShowDialog();
+        }
     }
 }

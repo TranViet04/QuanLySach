@@ -67,6 +67,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnBaoCaoDanhSachSach = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
@@ -476,11 +477,22 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Tìm kiếm:";
             // 
+            // btnBaoCaoDanhSachSach
+            // 
+            this.btnBaoCaoDanhSachSach.Location = new System.Drawing.Point(828, 34);
+            this.btnBaoCaoDanhSachSach.Name = "btnBaoCaoDanhSachSach";
+            this.btnBaoCaoDanhSachSach.Size = new System.Drawing.Size(112, 33);
+            this.btnBaoCaoDanhSachSach.TabIndex = 8;
+            this.btnBaoCaoDanhSachSach.Text = "In Danh Sách";
+            this.btnBaoCaoDanhSachSach.UseVisualStyleBackColor = true;
+            this.btnBaoCaoDanhSachSach.Click += new System.EventHandler(this.btnBaoCaoDanhSachSach_Click);
+            // 
             // FormBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(981, 634);
+            this.Controls.Add(this.btnBaoCaoDanhSachSach);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnChooseImage);
@@ -551,5 +563,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBaoCaoDanhSachSach;
     }
 }

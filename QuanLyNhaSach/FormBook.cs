@@ -879,5 +879,11 @@ namespace QuanLyNhaSach
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnBaoCaoDanhSachSach_Click(object sender, EventArgs e)
+        {
+            var form = new FormReport("bookList");
+            form.ShowDialog();
+        }
     }
 }

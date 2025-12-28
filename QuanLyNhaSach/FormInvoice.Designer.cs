@@ -67,7 +67,6 @@
             this.lblSearch = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnPrintInvoice = new System.Windows.Forms.Button();
             this.btnSaveInvoice = new System.Windows.Forms.Button();
             this.lblNote = new System.Windows.Forms.Label();
             this.lblTotalCustomerPay = new System.Windows.Forms.Label();
@@ -441,7 +440,6 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btnCancel);
-            this.groupBox4.Controls.Add(this.btnPrintInvoice);
             this.groupBox4.Controls.Add(this.btnSaveInvoice);
             this.groupBox4.Controls.Add(this.lblNote);
             this.groupBox4.Controls.Add(this.lblTotalCustomerPay);
@@ -467,15 +465,6 @@
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnPrintInvoice
-            // 
-            this.btnPrintInvoice.Location = new System.Drawing.Point(284, 87);
-            this.btnPrintInvoice.Name = "btnPrintInvoice";
-            this.btnPrintInvoice.Size = new System.Drawing.Size(90, 23);
-            this.btnPrintInvoice.TabIndex = 2;
-            this.btnPrintInvoice.Text = "In hóa đơn";
-            this.btnPrintInvoice.UseVisualStyleBackColor = true;
             // 
             // btnSaveInvoice
             // 
@@ -629,7 +618,6 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnPrintInvoice;
         private System.Windows.Forms.Button btnSaveInvoice;
         private System.Windows.Forms.Label lblNote;
         private System.Windows.Forms.TextBox txtNote;

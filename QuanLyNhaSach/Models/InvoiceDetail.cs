@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyNhaSach.Models.QuanLyNhaSach.Models
+namespace QuanLyNhaSach.Models
 {
     public class InvoiceDetail
     {

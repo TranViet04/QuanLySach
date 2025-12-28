@@ -124,11 +124,11 @@
     <Compile Include="FormCategory.Designer.cs">
       <DependentUpon>FormCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormInDanhMuc.cs">
+    <Compile Include="FormReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormInDanhMuc.Designer.cs">
-      <DependentUpon>FormInDanhMuc.cs</DependentUpon>
+    <Compile Include="FormReport.Designer.cs">
+      <DependentUpon>FormReport.cs</DependentUpon>
     </Compile>
     <Compile Include="FormInvoice.cs">
       <SubType>Form</SubType>
@@ -242,7 +242,13 @@
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\InvoiceDetail.cs" />
     <Compile Include="Models\Publisher.cs" />
-    <Compile Include="Models\StockReportModel.cs" />
+    <Compile Include="Reports\BookListReportModel.cs" />
+    <Compile Include="Reports\InventoryReportModel.cs" />
+    <Compile Include="Reports\InvoiceReportModel.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reports\RevenueReportModel.cs" />
+    <Compile Include="Reports\StockReportModel.cs" />
     <Compile Include="Models\PurchaseOrder.cs" />
     <Compile Include="Models\PurchaseOrderDetail.cs" />
     <Compile Include="Models\StockTaking.cs" />
@@ -272,6 +278,14 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\QuanLyNhaSach.Models.Category.datasource" />
+    <None Include="Properties\DataSources\QuanLyNhaSach.Models.Invoice.datasource" />
+    <None Include="Properties\DataSources\QuanLyNhaSach.Models.InvoiceDetail.datasource" />
+    <None Include="Properties\DataSources\QuanLyNhaSach.Models.QuanLyNhaSach.Models.InvoiceDetail.datasource" />
+    <None Include="Properties\DataSources\QuanLyNhaSach.Reports.BookListReportModel.datasource" />
+    <None Include="Properties\DataSources\QuanLyNhaSach.Reports.InventoryReportModel.datasource" />
+    <None Include="Properties\DataSources\QuanLyNhaSach.Reports.InvoiceReportModel.datasource" />
+    <None Include="Properties\DataSources\QuanLyNhaSach.Reports.RevenueByCategoryModel.datasource" />
+    <None Include="Properties\DataSources\QuanLyNhaSach.Reports.RevenueByDateModel.datasource" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FormAuthor.resx">
@@ -286,8 +300,8 @@
     <EmbeddedResource Include="FormCategory.resx">
       <DependentUpon>FormCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormInDanhMuc.resx">
-      <DependentUpon>FormInDanhMuc.cs</DependentUpon>
+    <EmbeddedResource Include="FormReport.resx">
+      <DependentUpon>FormReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInvoice.resx">
       <DependentUpon>FormInvoice.cs</DependentUpon>
@@ -338,7 +352,21 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ReportCategory.rdlc" />
+    <EmbeddedResource Include="Reports\ReportBookList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportCategory.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportInventory.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportInvoice.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportRevenue.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

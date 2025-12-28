@@ -276,7 +276,7 @@ namespace QuanLyNhaSach
 
         private void btnInThongKe_Click(object sender, EventArgs e)
         {
-            FormInDanhMuc formInDanhMuc = new FormInDanhMuc();
+            FormReport formInDanhMuc = new FormReport("Category", selectedCategoryId);
             formInDanhMuc.ShowDialog();
         }
     }

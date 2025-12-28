@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using QuanLyNhaSach.Data;
 using QuanLyNhaSach.Models;
-using QuanLyNhaSach.Models.QuanLyNhaSach.Models;
 
 namespace QuanLyNhaSach
 {
