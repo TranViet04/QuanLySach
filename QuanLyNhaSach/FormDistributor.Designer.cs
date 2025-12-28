@@ -46,12 +46,12 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.dgvDistributer = new System.Windows.Forms.DataGridView();
-            this.errWarning = new System.Windows.Forms.ErrorProvider(this.components);
             this.dgvDistributorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDistributorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errWarning = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDistributer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errWarning)).BeginInit();
@@ -164,9 +164,9 @@
             this.lblDistributorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDistributorName.Location = new System.Drawing.Point(32, 75);
             this.lblDistributorName.Name = "lblDistributorName";
-            this.lblDistributorName.Size = new System.Drawing.Size(140, 20);
+            this.lblDistributorName.Size = new System.Drawing.Size(150, 20);
             this.lblDistributorName.TabIndex = 1;
-            this.lblDistributorName.Text = "Tên Nhà xuất bản";
+            this.lblDistributorName.Text = "Tên Nhà phát hành";
             // 
             // lblDistributorID
             // 
@@ -248,10 +248,6 @@
             this.dgvDistributer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDistributor_CellClick);
             this.dgvDistributer.SelectionChanged += new System.EventHandler(this.dgvDistributor_SelectionChanged);
             // 
-            // errWarning
-            // 
-            this.errWarning.ContainerControl = this;
-            // 
             // dgvDistributorID
             // 
             this.dgvDistributorID.HeaderText = "Mã NPH";
@@ -286,6 +282,10 @@
             this.dgvEmail.MinimumWidth = 6;
             this.dgvEmail.Name = "dgvEmail";
             this.dgvEmail.ReadOnly = true;
+            // 
+            // errWarning
+            // 
+            this.errWarning.ContainerControl = this;
             // 
             // FormDistributor
             // 

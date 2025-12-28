@@ -192,9 +192,9 @@
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(27, 66);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(103, 16);
+            this.lblName.Size = new System.Drawing.Size(74, 16);
             this.lblName.TabIndex = 0;
-            this.lblName.Text = "Tên khách hàng";
+            this.lblName.Text = "Tên tác giả";
             // 
             // lblAuthorId
             // 
@@ -271,7 +271,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(676, 228);
+            this.btnAdd.Location = new System.Drawing.Point(719, 98);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 3;
@@ -281,7 +281,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(811, 226);
+            this.btnEdit.Location = new System.Drawing.Point(719, 138);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 3;
@@ -291,7 +291,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(676, 293);
+            this.btnDelete.Location = new System.Drawing.Point(719, 178);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 3;
@@ -301,7 +301,7 @@
             // 
             // btnRefesh
             // 
-            this.btnRefesh.Location = new System.Drawing.Point(811, 293);
+            this.btnRefesh.Location = new System.Drawing.Point(719, 218);
             this.btnRefesh.Name = "btnRefesh";
             this.btnRefesh.Size = new System.Drawing.Size(75, 23);
             this.btnRefesh.TabIndex = 3;

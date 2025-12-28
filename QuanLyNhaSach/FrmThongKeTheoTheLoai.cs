@@ -137,7 +137,7 @@ namespace QuanLyNhaSach
                     if (item.DoanhThu > 0)
                     {
                         int index = series.Points.AddXY(item.TenTheLoai, item.DoanhThu);
-                        series.Points[index].Label = "#VALX (#PERCENT)";
+                        series.Points[index].Label = "#PERCENT";
                         series.Points[index].LegendText = "#VALX";
                     }
                 }

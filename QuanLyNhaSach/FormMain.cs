@@ -39,6 +39,14 @@ namespace QuanLyNhaSach
             foreach (ToolStripMenuItem menu in menuStrip2.Items)
                 menu.Visible = true;
 
+            // Toolstrip menus
+            mniBook.Visible = false;
+            mniInvoice.Visible = false;
+            mniInvoiceManagement.Visible = false;
+            mniPurchaseOrder.Visible = false;
+            mniRefresh.Visible = true;
+            mniExit.Visible = true;
+
             // System
             mnuLogin.Visible = true;
             mnuLogout.Visible = false;
@@ -67,7 +75,6 @@ namespace QuanLyNhaSach
             mnuMonthlySales.Visible = false;
             mnuSalesByGenre.Visible = false;
             StockReport.Visible = false;
-            mnuExportToExcel.Visible = false;
 
             // Help
             mnuHelp.Visible = true;
@@ -92,6 +99,12 @@ namespace QuanLyNhaSach
             // ===============================
             if (isAdmin)
             {
+                // Toolstrip menus
+                mniBook.Visible = true;
+                mniInvoice.Visible = true;
+                mniInvoiceManagement.Visible = true;
+                mniPurchaseOrder.Visible = true;   
+
                 // System
                 mnuSystem.Visible = true;
                 mnuRoleManagement.Visible = true;
@@ -119,7 +132,6 @@ namespace QuanLyNhaSach
                 mnuMonthlySales.Visible = true;
                 mnuSalesByGenre.Visible = true;
                 StockReport.Visible = true;
-                mnuExportToExcel.Visible = true;
 
                 return;
             }
@@ -153,7 +165,6 @@ namespace QuanLyNhaSach
                 mnuMonthlySales.Visible = true;
                 mnuSalesByGenre.Visible = true;
                 StockReport.Visible = true;
-                mnuExportToExcel.Visible = true;
 
                 return;
             }
@@ -372,6 +383,34 @@ namespace QuanLyNhaSach
 
             var form = new FormReport("Revenue", param);
             form.ShowDialog();
+        }
+
+        private void mnuUserGuide_Click(object sender, EventArgs e)
+        {
+            var form = new FormUserGuide();
+            form.ShowDialog();
+        }
+
+        private void mnuAbout_Click(object sender, EventArgs e)
+        {
+            var form = new FormAbout();
+            form.ShowDialog();
+        }
+
+        private void mniRefresh_Click(object sender, EventArgs e)
+        {
+            FormMain_Load(sender, e);
+            // Refresh the main form
+            ApplyAuthorization();
+            UpdateStatusBar();
+            
+        }
+
+        private void mniExit_Click(object sender, EventArgs e)
+        {
+            CloseAllMdiChildren();
+            Application.Exit();
+
         }
     }
 }

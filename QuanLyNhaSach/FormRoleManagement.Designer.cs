@@ -32,6 +32,9 @@
             this.lblRoleName = new System.Windows.Forms.Label();
             this.txtRoleName = new System.Windows.Forms.TextBox();
             this.dgvRoles = new System.Windows.Forms.DataGridView();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDecription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRefesh = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -40,9 +43,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDecription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -83,6 +83,30 @@
             this.dgvRoles.Size = new System.Drawing.Size(609, 150);
             this.dgvRoles.TabIndex = 2;
             this.dgvRoles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRoles_CellClick);
+            // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "RoleId";
+            this.colID.HeaderText = "ID";
+            this.colID.MinimumWidth = 6;
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            // 
+            // colName
+            // 
+            this.colName.DataPropertyName = "Name";
+            this.colName.HeaderText = "Tên Quyền ";
+            this.colName.MinimumWidth = 6;
+            this.colName.Name = "colName";
+            this.colName.ReadOnly = true;
+            // 
+            // colDecription
+            // 
+            this.colDecription.DataPropertyName = "Description";
+            this.colDecription.HeaderText = "Mô tả";
+            this.colDecription.MinimumWidth = 6;
+            this.colDecription.Name = "colDecription";
+            this.colDecription.ReadOnly = true;
             // 
             // btnRefesh
             // 
@@ -163,30 +187,6 @@
             this.txtDescription.Size = new System.Drawing.Size(372, 22);
             this.txtDescription.TabIndex = 1;
             // 
-            // colID
-            // 
-            this.colID.DataPropertyName = "RoleId";
-            this.colID.HeaderText = "ID";
-            this.colID.MinimumWidth = 6;
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            // 
-            // colName
-            // 
-            this.colName.DataPropertyName = "Name";
-            this.colName.HeaderText = "Tên Quyền ";
-            this.colName.MinimumWidth = 6;
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            // 
-            // colDecription
-            // 
-            this.colDecription.DataPropertyName = "Description";
-            this.colDecription.HeaderText = "Mô tả";
-            this.colDecription.MinimumWidth = 6;
-            this.colDecription.Name = "colDecription";
-            this.colDecription.ReadOnly = true;
-            // 
             // FormRoleManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -204,6 +204,7 @@
             this.Controls.Add(this.lblRoleName);
             this.Name = "FormRoleManagement";
             this.Text = "FormRoleManagement";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormRoleManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

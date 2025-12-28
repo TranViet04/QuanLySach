@@ -52,8 +52,8 @@
             this.mnuStatisticsReports = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMonthlySales = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalesByGenre = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBaoCaoDoanhThu = new System.Windows.Forms.ToolStripMenuItem();
             this.StockReport = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUserGuide = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,14 +65,13 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.mniBook = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.mniInvoice = new System.Windows.Forms.ToolStripButton();
+            this.mniInvoiceManagement = new System.Windows.Forms.ToolStripButton();
+            this.mniPurchaseOrder = new System.Windows.Forms.ToolStripButton();
+            this.mniRefresh = new System.Windows.Forms.ToolStripButton();
+            this.mniExit = new System.Windows.Forms.ToolStripButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
-            this.menuBaoCaoDoanhThu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -106,6 +105,7 @@
             // 
             // mnuLogin
             // 
+            this.mnuLogin.Image = ((System.Drawing.Image)(resources.GetObject("mnuLogin.Image")));
             this.mnuLogin.Name = "mnuLogin";
             this.mnuLogin.Size = new System.Drawing.Size(223, 26);
             this.mnuLogin.Text = "Đăng Nhập";
@@ -113,6 +113,7 @@
             // 
             // mnuLogout
             // 
+            this.mnuLogout.Image = ((System.Drawing.Image)(resources.GetObject("mnuLogout.Image")));
             this.mnuLogout.Name = "mnuLogout";
             this.mnuLogout.Size = new System.Drawing.Size(223, 26);
             this.mnuLogout.Text = "Đăng Xuất";
@@ -120,6 +121,7 @@
             // 
             // mnuRoleManagement
             // 
+            this.mnuRoleManagement.Image = ((System.Drawing.Image)(resources.GetObject("mnuRoleManagement.Image")));
             this.mnuRoleManagement.Name = "mnuRoleManagement";
             this.mnuRoleManagement.Size = new System.Drawing.Size(223, 26);
             this.mnuRoleManagement.Text = "Quản lý quyền";
@@ -127,6 +129,7 @@
             // 
             // mnuUserManagement
             // 
+            this.mnuUserManagement.Image = ((System.Drawing.Image)(resources.GetObject("mnuUserManagement.Image")));
             this.mnuUserManagement.Name = "mnuUserManagement";
             this.mnuUserManagement.Size = new System.Drawing.Size(223, 26);
             this.mnuUserManagement.Text = "Quản lý người dùng";
@@ -147,6 +150,7 @@
             // 
             // mnuBooks
             // 
+            this.mnuBooks.Image = ((System.Drawing.Image)(resources.GetObject("mnuBooks.Image")));
             this.mnuBooks.Name = "mnuBooks";
             this.mnuBooks.Size = new System.Drawing.Size(191, 26);
             this.mnuBooks.Text = "Sách";
@@ -154,6 +158,7 @@
             // 
             // mnuCategories
             // 
+            this.mnuCategories.Image = ((System.Drawing.Image)(resources.GetObject("mnuCategories.Image")));
             this.mnuCategories.Name = "mnuCategories";
             this.mnuCategories.Size = new System.Drawing.Size(191, 26);
             this.mnuCategories.Text = "Thể Loại";
@@ -161,6 +166,7 @@
             // 
             // tácGiảToolStripMenuItem
             // 
+            this.tácGiảToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tácGiảToolStripMenuItem.Image")));
             this.tácGiảToolStripMenuItem.Name = "tácGiảToolStripMenuItem";
             this.tácGiảToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.tácGiảToolStripMenuItem.Text = "Tác Giả";
@@ -168,6 +174,7 @@
             // 
             // mnuPublishers
             // 
+            this.mnuPublishers.Image = ((System.Drawing.Image)(resources.GetObject("mnuPublishers.Image")));
             this.mnuPublishers.Name = "mnuPublishers";
             this.mnuPublishers.Size = new System.Drawing.Size(191, 26);
             this.mnuPublishers.Text = "Nhà Xuất Bản";
@@ -175,6 +182,7 @@
             // 
             // mnuDistributor
             // 
+            this.mnuDistributor.Image = ((System.Drawing.Image)(resources.GetObject("mnuDistributor.Image")));
             this.mnuDistributor.Name = "mnuDistributor";
             this.mnuDistributor.Size = new System.Drawing.Size(191, 26);
             this.mnuDistributor.Text = "Nhà Phát Hành";
@@ -182,6 +190,7 @@
             // 
             // mnuCustomers
             // 
+            this.mnuCustomers.Image = ((System.Drawing.Image)(resources.GetObject("mnuCustomers.Image")));
             this.mnuCustomers.Name = "mnuCustomers";
             this.mnuCustomers.Size = new System.Drawing.Size(191, 26);
             this.mnuCustomers.Text = "Khách Hàng";
@@ -201,6 +210,7 @@
             // 
             // mnuSalesInvoices
             // 
+            this.mnuSalesInvoices.Image = ((System.Drawing.Image)(resources.GetObject("mnuSalesInvoices.Image")));
             this.mnuSalesInvoices.Name = "mnuSalesInvoices";
             this.mnuSalesInvoices.Size = new System.Drawing.Size(231, 26);
             this.mnuSalesInvoices.Text = "Bán Hàng / Hóa Đơn";
@@ -208,6 +218,7 @@
             // 
             // quảnLýHóaĐơnToolStripMenuItem
             // 
+            this.quảnLýHóaĐơnToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("quảnLýHóaĐơnToolStripMenuItem.Image")));
             this.quảnLýHóaĐơnToolStripMenuItem.Name = "quảnLýHóaĐơnToolStripMenuItem";
             this.quảnLýHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
             this.quảnLýHóaĐơnToolStripMenuItem.Text = "Quản Lý Hóa Đơn";
@@ -215,6 +226,7 @@
             // 
             // mnuPurchasing
             // 
+            this.mnuPurchasing.Image = ((System.Drawing.Image)(resources.GetObject("mnuPurchasing.Image")));
             this.mnuPurchasing.Name = "mnuPurchasing";
             this.mnuPurchasing.Size = new System.Drawing.Size(231, 26);
             this.mnuPurchasing.Text = "Nhập Hàng";
@@ -222,6 +234,7 @@
             // 
             // mnuManagePurchaseOrders
             // 
+            this.mnuManagePurchaseOrders.Image = ((System.Drawing.Image)(resources.GetObject("mnuManagePurchaseOrders.Image")));
             this.mnuManagePurchaseOrders.Name = "mnuManagePurchaseOrders";
             this.mnuManagePurchaseOrders.Size = new System.Drawing.Size(231, 26);
             this.mnuManagePurchaseOrders.Text = "Quản Lý Phiếu Nhập";
@@ -229,6 +242,7 @@
             // 
             // mnuStocktaking
             // 
+            this.mnuStocktaking.Image = ((System.Drawing.Image)(resources.GetObject("mnuStocktaking.Image")));
             this.mnuStocktaking.Name = "mnuStocktaking";
             this.mnuStocktaking.Size = new System.Drawing.Size(231, 26);
             this.mnuStocktaking.Text = "Kiểm Kho";
@@ -240,14 +254,14 @@
             this.mnuMonthlySales,
             this.mnuSalesByGenre,
             this.menuBaoCaoDoanhThu,
-            this.StockReport,
-            this.mnuExportToExcel});
+            this.StockReport});
             this.mnuStatisticsReports.Name = "mnuStatisticsReports";
             this.mnuStatisticsReports.Size = new System.Drawing.Size(150, 24);
             this.mnuStatisticsReports.Text = "Thống Kê & Báo Cáo";
             // 
             // mnuMonthlySales
             // 
+            this.mnuMonthlySales.Image = ((System.Drawing.Image)(resources.GetObject("mnuMonthlySales.Image")));
             this.mnuMonthlySales.Name = "mnuMonthlySales";
             this.mnuMonthlySales.Size = new System.Drawing.Size(293, 26);
             this.mnuMonthlySales.Text = "Doanh Thu Theo Tháng";
@@ -255,23 +269,27 @@
             // 
             // mnuSalesByGenre
             // 
+            this.mnuSalesByGenre.Image = ((System.Drawing.Image)(resources.GetObject("mnuSalesByGenre.Image")));
             this.mnuSalesByGenre.Name = "mnuSalesByGenre";
             this.mnuSalesByGenre.Size = new System.Drawing.Size(293, 26);
             this.mnuSalesByGenre.Text = "Doanh Thu Theo Thể Loại";
             this.mnuSalesByGenre.Click += new System.EventHandler(this.mnuSalesByGenre_Click);
             // 
+            // menuBaoCaoDoanhThu
+            // 
+            this.menuBaoCaoDoanhThu.Image = ((System.Drawing.Image)(resources.GetObject("menuBaoCaoDoanhThu.Image")));
+            this.menuBaoCaoDoanhThu.Name = "menuBaoCaoDoanhThu";
+            this.menuBaoCaoDoanhThu.Size = new System.Drawing.Size(293, 26);
+            this.menuBaoCaoDoanhThu.Text = "Báo Cáo Doanh Thu Bán Hàng";
+            this.menuBaoCaoDoanhThu.Click += new System.EventHandler(this.menuBaoCaoDoanhThu_Click);
+            // 
             // StockReport
             // 
+            this.StockReport.Image = ((System.Drawing.Image)(resources.GetObject("StockReport.Image")));
             this.StockReport.Name = "StockReport";
             this.StockReport.Size = new System.Drawing.Size(293, 26);
             this.StockReport.Text = "Báo Cáo Tồn Kho";
             this.StockReport.Click += new System.EventHandler(this.StockReport_Click);
-            // 
-            // mnuExportToExcel
-            // 
-            this.mnuExportToExcel.Name = "mnuExportToExcel";
-            this.mnuExportToExcel.Size = new System.Drawing.Size(293, 26);
-            this.mnuExportToExcel.Text = "Xuất Excel";
             // 
             // mnuHelp
             // 
@@ -284,15 +302,19 @@
             // 
             // mnuUserGuide
             // 
+            this.mnuUserGuide.Image = ((System.Drawing.Image)(resources.GetObject("mnuUserGuide.Image")));
             this.mnuUserGuide.Name = "mnuUserGuide";
             this.mnuUserGuide.Size = new System.Drawing.Size(173, 26);
             this.mnuUserGuide.Text = "Hướng Dẫn ";
+            this.mnuUserGuide.Click += new System.EventHandler(this.mnuUserGuide_Click);
             // 
             // mnuAbout
             // 
+            this.mnuAbout.Image = ((System.Drawing.Image)(resources.GetObject("mnuAbout.Image")));
             this.mnuAbout.Name = "mnuAbout";
             this.mnuAbout.Size = new System.Drawing.Size(173, 26);
             this.mnuAbout.Text = "Giới Thiệu";
+            this.mnuAbout.Click += new System.EventHandler(this.mnuAbout_Click);
             // 
             // statusStrip1
             // 
@@ -343,11 +365,11 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mniBook,
-            this.toolStripButton1,
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripButton5,
-            this.toolStripButton6});
+            this.mniInvoice,
+            this.mniInvoiceManagement,
+            this.mniPurchaseOrder,
+            this.mniRefresh,
+            this.mniExit});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1054, 27);
@@ -364,66 +386,61 @@
             this.mniBook.Text = "Thêm Sách";
             this.mniBook.Click += new System.EventHandler(this.mnuBooks_Click);
             // 
-            // toolStripButton1
+            // mniInvoice
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton1.Text = "Bán Hàng";
-            this.toolStripButton1.Click += new System.EventHandler(this.mnuSalesInvoices_Click);
+            this.mniInvoice.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.mniInvoice.Image = ((System.Drawing.Image)(resources.GetObject("mniInvoice.Image")));
+            this.mniInvoice.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.mniInvoice.Name = "mniInvoice";
+            this.mniInvoice.Size = new System.Drawing.Size(29, 24);
+            this.mniInvoice.Text = "Bán Hàng";
+            this.mniInvoice.Click += new System.EventHandler(this.mnuSalesInvoices_Click);
             // 
-            // toolStripButton3
+            // mniInvoiceManagement
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton3.Text = "Hóa Đơn";
-            this.toolStripButton3.Click += new System.EventHandler(this.quảnLýHóaĐơnToolStripMenuItem_Click);
+            this.mniInvoiceManagement.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.mniInvoiceManagement.Image = ((System.Drawing.Image)(resources.GetObject("mniInvoiceManagement.Image")));
+            this.mniInvoiceManagement.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.mniInvoiceManagement.Name = "mniInvoiceManagement";
+            this.mniInvoiceManagement.Size = new System.Drawing.Size(29, 24);
+            this.mniInvoiceManagement.Text = "Hóa Đơn";
+            this.mniInvoiceManagement.Click += new System.EventHandler(this.quảnLýHóaĐơnToolStripMenuItem_Click);
             // 
-            // toolStripButton4
+            // mniPurchaseOrder
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton4.Text = "Nhập Hàng";
-            this.toolStripButton4.Click += new System.EventHandler(this.mnuPurchasing_Click);
+            this.mniPurchaseOrder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.mniPurchaseOrder.Image = ((System.Drawing.Image)(resources.GetObject("mniPurchaseOrder.Image")));
+            this.mniPurchaseOrder.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.mniPurchaseOrder.Name = "mniPurchaseOrder";
+            this.mniPurchaseOrder.Size = new System.Drawing.Size(29, 24);
+            this.mniPurchaseOrder.Text = "Nhập Hàng";
+            this.mniPurchaseOrder.Click += new System.EventHandler(this.mnuPurchasing_Click);
             // 
-            // toolStripButton5
+            // mniRefresh
             // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton5.Text = "Tải Lại";
+            this.mniRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.mniRefresh.Image = ((System.Drawing.Image)(resources.GetObject("mniRefresh.Image")));
+            this.mniRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.mniRefresh.Name = "mniRefresh";
+            this.mniRefresh.Size = new System.Drawing.Size(29, 24);
+            this.mniRefresh.Text = "Tải Lại";
+            this.mniRefresh.Click += new System.EventHandler(this.mniRefresh_Click);
             // 
-            // toolStripButton6
+            // mniExit
             // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton6.Text = "Thoát";
+            this.mniExit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.mniExit.Image = ((System.Drawing.Image)(resources.GetObject("mniExit.Image")));
+            this.mniExit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.mniExit.Name = "mniExit";
+            this.mniExit.Size = new System.Drawing.Size(29, 24);
+            this.mniExit.Text = "Thoát";
+            this.mniExit.Click += new System.EventHandler(this.mniExit_Click);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // menuBaoCaoDoanhThu
-            // 
-            this.menuBaoCaoDoanhThu.Name = "menuBaoCaoDoanhThu";
-            this.menuBaoCaoDoanhThu.Size = new System.Drawing.Size(293, 26);
-            this.menuBaoCaoDoanhThu.Text = "Báo Cáo Doanh Thu Bán Hàng";
-            this.menuBaoCaoDoanhThu.Click += new System.EventHandler(this.menuBaoCaoDoanhThu_Click);
             // 
             // FormMain
             // 
@@ -467,7 +484,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuMonthlySales;
         private System.Windows.Forms.ToolStripMenuItem mnuSalesByGenre;
         private System.Windows.Forms.ToolStripMenuItem StockReport;
-        private System.Windows.Forms.ToolStripMenuItem mnuExportToExcel;
         private System.Windows.Forms.ToolStripMenuItem mnuHelp;
         private System.Windows.Forms.ToolStripMenuItem mnuUserGuide;
         private System.Windows.Forms.ToolStripMenuItem mnuAbout;
@@ -476,12 +492,12 @@
         private System.Windows.Forms.ToolStripStatusLabel tslUser;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton mniInvoice;
         private System.Windows.Forms.ToolStripButton mniBook;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.ToolStripButton mniInvoiceManagement;
+        private System.Windows.Forms.ToolStripButton mniPurchaseOrder;
+        private System.Windows.Forms.ToolStripButton mniRefresh;
+        private System.Windows.Forms.ToolStripButton mniExit;
         private System.Windows.Forms.ToolStripStatusLabel tslRole;
         private System.Windows.Forms.ToolStripStatusLabel tslTime;
         private System.Windows.Forms.ToolStripStatusLabel tslDb;
